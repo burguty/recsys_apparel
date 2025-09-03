@@ -1,0 +1,4 @@
+data/
+venv/
+main.py
+.DS_Store

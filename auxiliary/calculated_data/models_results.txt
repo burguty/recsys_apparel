@@ -1,0 +1,83 @@
+
+-- Logistic Regression (class_weight='balanced') --
+
+=== Evaluation: LogisticRegression ===
+              precision    recall  f1-score   support
+
+           0     0.9989    0.9669    0.9826    197498
+           1     0.2586    0.9125    0.4030      2502
+
+    accuracy                         0.9662    200000
+   macro avg     0.6287    0.9397    0.6928    200000
+weighted avg     0.9896    0.9662    0.9753    200000
+
+Confusion matrix:
+ [[190953   6545]
+ [   219   2283]]
+ROC AUC: 0.9739505795843332
+PR AUC (average precision): 0.3441366056897745
+
+-- LightGBM Randomized Search --
+
+LightGBM best score (cv average_precision): 0.370957825507374
+Best params: {'subsample': 0.9, 'scale_pos_weight': 1.0, 'num_leaves': 31, 'n_estimators': 300, 'min_child_samples': 50, 'max_depth': -1, 'learning_rate': 0.02, 'colsample_bytree': 1.0}
+Time elapsed (s): 359.55
+
+=== Evaluation: LightGBM_best ===
+              precision    recall  f1-score   support
+
+           0     0.9879    0.9996    0.9937    197498
+           1     0.5098    0.0312    0.0588      2502
+
+    accuracy                         0.9875    200000
+   macro avg     0.7488    0.5154    0.5262    200000
+weighted avg     0.9819    0.9875    0.9820    200000
+
+Confusion matrix:
+ [[197423     75]
+ [  2424     78]]
+ROC AUC: 0.9756185512253089
+PR AUC (average precision): 0.37935055218761354
+
+-- XGBoost Randomized Search --
+
+XGBoost best score (cv average_precision): 0.3705850605796715
+Best params: {'subsample': 0.7, 'scale_pos_weight': 1.0, 'reg_lambda': 5, 'reg_alpha': 1.0, 'n_estimators': 1200, 'max_depth': 4, 'learning_rate': 0.01, 'colsample_bytree': 1.0}
+
+=== Evaluation: XGBoost_best ===
+              precision    recall  f1-score   support
+
+           0     0.9881    0.9993    0.9937    197498
+           1     0.4676    0.0520    0.0935      2502
+
+    accuracy                         0.9874    200000
+   macro avg     0.7279    0.5256    0.5436    200000
+weighted avg     0.9816    0.9874    0.9824    200000
+
+Confusion matrix:
+ [[197350    148]
+ [  2372    130]]
+ROC AUC: 0.9761387448993302
+PR AUC (average precision): 0.3787507202217895
+
+-- CatBoost quick fit (CPU) --
+
+=== Evaluation: CatBoost ===
+              precision    recall  f1-score   support
+
+           0     0.9992    0.9521    0.9751    197498
+           1     0.1993    0.9408    0.3289      2502
+
+    accuracy                         0.9520    200000
+   macro avg     0.5992    0.9465    0.6520    200000
+weighted avg     0.9892    0.9520    0.9670    200000
+
+Confusion matrix:
+ [[188038   9460]
+ [   148   2354]]
+ROC AUC: 0.9761075027409843
+PR AUC (average precision): 0.37994528752242307
+
+-- RandomForest baseline --
+ROC AUC: 0.9452261267675246
+PR AUC (average precision): 0.2998131532162522
